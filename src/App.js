@@ -1,21 +1,61 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import firebase from './firebase.js';
+
+import Chat from './components/Chat';
+import UserMessageInput from './components/UserMessageInput';
+
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
+    constructor(props) {
+        super(props);
+        this.state = {
+            messages: []
+        };
+    }
+    componentDidMount() {
+        const messageRef = firebase.database().ref('messages');
+        messageRef.on('value', (snapshot) => {
+
+            let items = snapshot.val();
+            let newState = [];
+            for (let item in items) {
+                newState.push({
+                    id: item,
+                    text: items[item].text,
+                    username: items[item].username
+                });
+            }
+
+            this.setState({
+                messages: newState
+            });
+        });
+    }
+
+    submitMessage(username, messageText) {
+        const messagesRef = firebase.database().ref('messages');
+        const message = {
+            username,
+            text: messageText
+        };
+        messagesRef.push(message);
+    }
+
+
+
+
+
+    render() {
+        console.log(this.state.messages);
+        return (
+            <div className="App">
+                <Chat messages={this.state.messages} />
+                <UserMessageInput submitMessage={this.submitMessage} />
+            </div>
+        );
+    }
+
+};
 
 export default App;
