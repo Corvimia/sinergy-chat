@@ -26,7 +26,7 @@ class UserMessageInput extends Component {
         let { username, message } = this.state;
 
         if (!username) {
-            username = "#" + makeRandomHash;
+            username = "#" + makeRandomHash(8);
         }
 
         if (username === "GOD" && window.location.href.indexOf("localhost") === -1) {
