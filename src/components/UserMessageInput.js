@@ -1,5 +1,14 @@
 import React, { Component } from "react";
 
+const makeRandomHash = length => {
+    var text = "";
+    var possible = "0123456789";
+
+    for (var i = 0; i < length; i++) text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+    return text;
+};
+
 class UserMessageInput extends Component {
     constructor(props) {
         super(props);
@@ -13,18 +22,21 @@ class UserMessageInput extends Component {
 
     submitMessage(e) {
         e.preventDefault();
-        if (!this.state.username) {
-            alert("You need a username!");
+
+        let { username, message } = this.state;
+
+        if (!username) {
+            username = "#" + makeRandomHash;
+        }
+
+        if (username === "GOD" && window.location.href.indexOf("localhost") === -1) {
             return;
         }
-        if (this.state.username === "GOD" && window.location.href.indexOf("localhost") === -1) {
-            return;
-        }
-        if (!this.state.message) {
+        if (!message) {
             alert("You need a message!");
             return;
         }
-        this.props.submitMessage(this.state.username, this.state.message);
+        this.props.submitMessage(username, message);
         this.setState({ message: "" });
     }
 
