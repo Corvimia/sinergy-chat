@@ -1,19 +1,32 @@
 {
-  "name": "sinergy-chat",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "react-scripts": "1.0.14"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  },
-  "devDependencies": {
-    "firebase": "^4.4.0"
-  }
+    "name": "sinergy-chat",
+    "version": "0.1.0",
+    "private": true,
+    "homepage": "http://yorublaireau.github.io/sinergy-chat",
+    "dependencies": {
+        "react": "^16.0.0",
+        "react-dom": "^16.0.0",
+        "react-scripts": "1.0.14"
+    },
+    "scripts": {
+        "build-css": "node-sass-chokidar src/scss -o src/css",
+        "watch-css": "npm run build-css && node-sass-chokidar src/scss -o src/css --watch --recursive",
+        "dev": "concurrently \"npm run watch-css\"",
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test --env=jsdom",
+        "eject": "react-scripts eject",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build"
+    },
+    "devDependencies": {
+        "concurrently": "^3.5.0",
+        "firebase": "^4.4.0",
+        "gh-pages": "^1.0.0",
+        "node-sass-chokidar": "^0.0.3"
+    },
+    "prettier": {
+        "printWidth": 180,
+        "tabWidth": 4
+    }
 }

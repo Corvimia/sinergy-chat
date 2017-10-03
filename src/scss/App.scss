@@ -1,0 +1,48 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+.App {
+    background-color: black;
+    color: #32cd32;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+.UserMessageInput {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 25px;
+    input {
+        height: 25px;
+        border: 0px;
+        &[name="username"] {
+            width: 100px;
+        }
+
+        &[name="message"] {
+            width: calc(100% - 150px);
+        }
+    }
+    button {
+        width: 50px;
+        height: 25px;
+    }
+}
+
+.Chat {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 25px;
+
+    > ul {
+        position: absolute;
+        bottom: 0px;
+    }
+}

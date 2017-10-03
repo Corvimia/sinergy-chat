@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import './App.css';
-import firebase from './firebase.js';
+import React, { Component } from "react";
+import firebase from "./firebase.js";
 
-import Chat from './components/Chat';
-import UserMessageInput from './components/UserMessageInput';
+import Chat from "./components/Chat";
+import UserMessageInput from "./components/UserMessageInput";
 
+import "./css/App.css";
 
 class App extends Component {
     constructor(props) {
@@ -14,9 +14,8 @@ class App extends Component {
         };
     }
     componentDidMount() {
-        const messageRef = firebase.database().ref('messages');
-        messageRef.on('value', (snapshot) => {
-
+        const messageRef = firebase.database().ref("messages");
+        messageRef.on("value", snapshot => {
             let items = snapshot.val();
             let newState = [];
             for (let item in items) {
@@ -34,17 +33,13 @@ class App extends Component {
     }
 
     submitMessage(username, messageText) {
-        const messagesRef = firebase.database().ref('messages');
+        const messagesRef = firebase.database().ref("messages");
         const message = {
             username,
             text: messageText
         };
         messagesRef.push(message);
     }
-
-
-
-
 
     render() {
         console.log(this.state.messages);
@@ -55,7 +50,6 @@ class App extends Component {
             </div>
         );
     }
-
-};
+}
 
 export default App;
