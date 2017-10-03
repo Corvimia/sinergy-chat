@@ -18,7 +18,7 @@ class UserMessageInput extends Component {
             alert("You need a username!");
             return;
         }
-        if (this.state.username == "GOD" && window.location.href.indexOf("localhost") == -1) {
+        if (this.state.username === "GOD" && window.location.href.indexOf("localhost") === -1) {
             return;
         }
         if (!this.state.message) {

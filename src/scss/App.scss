@@ -39,7 +39,7 @@
     top: 0px;
     left: 0px;
     right: 0px;
-    bottom: 25px;
+    bottom: 30px;
 
     > ul {
         position: absolute;
@@ -52,6 +52,9 @@
             }
             .message {
                 padding-left: 10px;
+            }
+            .date {
+                padding-right: 10px;
             }
         }
     }

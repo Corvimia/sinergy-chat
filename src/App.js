@@ -14,7 +14,11 @@ class App extends Component {
         };
     }
     componentDidMount() {
-        const messageRef = firebase.database().ref("messages");
+        const messageRef = firebase
+            .database()
+            .ref("messages")
+            .limitToLast(60);
+
         messageRef.on("value", snapshot => {
             let items = snapshot.val();
             let newState = [];
@@ -22,7 +26,8 @@ class App extends Component {
                 newState.push({
                     id: item,
                     text: items[item].text,
-                    username: items[item].username
+                    username: items[item].username,
+                    timestamp: items[item].timestamp
                 });
             }
 
@@ -36,7 +41,8 @@ class App extends Component {
         const messagesRef = firebase.database().ref("messages");
         const message = {
             username,
-            text: messageText
+            text: messageText,
+            timestamp: new Date().getTime()
         };
         messagesRef.push(message);
     }

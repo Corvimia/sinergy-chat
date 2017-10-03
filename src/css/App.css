@@ -32,7 +32,7 @@
   top: 0px;
   left: 0px;
   right: 0px;
-  bottom: 25px; }
+  bottom: 30px; }
   .Chat > ul {
     position: absolute;
     bottom: 0px; }
@@ -42,3 +42,5 @@
         font-weight: bold; }
       .Chat > ul > li .message {
         padding-left: 10px; }
+      .Chat > ul > li .date {
+        padding-right: 10px; }

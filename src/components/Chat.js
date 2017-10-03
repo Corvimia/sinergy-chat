@@ -1,4 +1,5 @@
 import React from "react";
+import DateDisplay from "./Date";
 
 const Chat = ({ messages }) => {
     return (
@@ -7,7 +8,11 @@ const Chat = ({ messages }) => {
                 {messages.map(message => {
                     return (
                         <li key={message.id}>
-                            <span className="username">{message.username}:</span>
+                            {message.timestamp && <DateDisplay value={message.timestamp} format={"YYYY/MM/DD 0H:0M:0S"} />}
+                            <span className="username">
+                                {message.username}
+                                {">"}
+                            </span>
                             <span className="message">{message.text}</span>
                         </li>
                     );
