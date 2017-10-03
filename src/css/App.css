@@ -37,7 +37,8 @@
     position: absolute;
     bottom: 0px; }
     .Chat > ul > li {
-      padding-left: 10px; }
+      padding-left: 10px;
+      word-wrap: break-word; }
       .Chat > ul > li .username {
         font-weight: bold; }
       .Chat > ul > li .message {
