@@ -12,7 +12,6 @@ class UserMessageInput extends Component {
     }
 
     submitMessage(e) {
-        console.log("test");
         e.preventDefault();
         if (!this.state.username) {
             alert("You need a username!");

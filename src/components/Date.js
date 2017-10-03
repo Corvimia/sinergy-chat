@@ -7,8 +7,6 @@ const padLeft = (str, pad, length) => {
 };
 
 const DateDisplay = ({ value, format }) => {
-    console.log(value, format);
-
     value = new Date(value);
 
     format = format.replace("YYYY", value.getFullYear());

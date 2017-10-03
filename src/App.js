@@ -48,7 +48,6 @@ class App extends Component {
     }
 
     render() {
-        console.log(this.state.messages);
         return (
             <div className="App">
                 <Chat messages={this.state.messages} />
