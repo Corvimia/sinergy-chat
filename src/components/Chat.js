@@ -10,7 +10,7 @@ const Chat = ({ messages }) => {
                         <li key={message.id}>
                             {message.timestamp && <DateDisplay value={message.timestamp} format={"YYYY/MM/DD 0H:0M:0S"} />}
                             <span className="username">
-                                {message.username.replace(/\b(\w{20})\w+\b/i, "$1[...]")}
+                                {/* {message.username.replace(/\b(\w{20})\w+\b/i, "$1[...]")} */} someone
                                 {">"}
                             </span>
                             <span className="message">{message.text.replace(/\b(\w{20})\w+\b/i, "$1[...]")}</span>
