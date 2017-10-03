@@ -14,7 +14,15 @@ class UserMessageInput extends Component {
     submitMessage(e) {
         console.log("test");
         e.preventDefault();
-        if (!this.state.username || !this.state.message) {
+        if (!this.state.username) {
+            alert("You need a username!");
+            return;
+        }
+        if (this.state.username == "GOD" && window.location.href.indexOf("localhost") == -1) {
+            return;
+        }
+        if (!this.state.message) {
+            alert("You need a message!");
             return;
         }
         this.props.submitMessage(this.state.username, this.state.message);

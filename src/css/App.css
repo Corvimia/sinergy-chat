@@ -36,3 +36,9 @@
   .Chat > ul {
     position: absolute;
     bottom: 0px; }
+    .Chat > ul > li {
+      padding-left: 10px; }
+      .Chat > ul > li .username {
+        font-weight: bold; }
+      .Chat > ul > li .message {
+        padding-left: 10px; }

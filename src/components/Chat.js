@@ -7,8 +7,8 @@ const Chat = ({ messages }) => {
                 {messages.map(message => {
                     return (
                         <li key={message.id}>
-                            <span>{message.username}:</span>
-                            <span>{message.text}</span>
+                            <span className="username">{message.username}:</span>
+                            <span className="message">{message.text}</span>
                         </li>
                     );
                 })}

@@ -44,5 +44,15 @@
     > ul {
         position: absolute;
         bottom: 0px;
+        > li {
+            padding-left: 10px;
+
+            .username {
+                font-weight: bold;
+            }
+            .message {
+                padding-left: 10px;
+            }
+        }
     }
 }
