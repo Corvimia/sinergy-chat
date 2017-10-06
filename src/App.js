@@ -10,16 +10,27 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            messages: []
+            messages: [],
+            windowFocused: true
         };
+        this.setFocusState = this.setFocusState.bind(this);
+    }
+    setFocusState(windowFocused) {
+        this.setState({ windowFocused });
+        document.title = "SINergy chat";
     }
     componentDidMount() {
+        window.addEventListener("focus", () => this.setFocusState(true));
+        window.addEventListener("blur", () => this.setFocusState(false));
+
         const messageRef = firebase
             .database()
             .ref("messages")
             .limitToLast(60);
 
         messageRef.on("value", snapshot => {
+            debugger;
+            document.title = this.state.windowFocused ? "SINergy chat" : "New - SINergy chat";
             let items = snapshot.val();
             let newState = [];
             for (let item in items) {
@@ -50,6 +61,7 @@ class App extends Component {
     render() {
         return (
             <div className="App">
+                <div>{this.state.windowFocused.toString()}</div>
                 <Chat messages={this.state.messages} />
                 <UserMessageInput submitMessage={this.submitMessage} />
             </div>
