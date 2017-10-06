@@ -29,7 +29,6 @@ class App extends Component {
             .limitToLast(60);
 
         messageRef.on("value", snapshot => {
-            debugger;
             document.title = this.state.windowFocused ? "SINergy chat" : "New - SINergy chat";
             let items = snapshot.val();
             let newState = [];
