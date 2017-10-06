@@ -37,8 +37,9 @@
     position: absolute;
     bottom: 0px; }
     .Chat > ul > li {
-      padding-left: 10px;
-      word-wrap: break-word; }
+      word-wrap: break-word;
+      padding-left: 160px;
+      text-indent: -157px; }
       .Chat > ul > li .username {
         font-weight: bold; }
       .Chat > ul > li .message {
