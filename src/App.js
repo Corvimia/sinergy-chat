@@ -61,7 +61,6 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <div>{this.state.windowFocused.toString()}</div>
                 <Chat messages={this.state.messages} />
                 <UserMessageInput submitMessage={this.submitMessage} />
             </div>
